@@ -1,0 +1,13 @@
+on:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build and push
+        env:
+          MY_SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
+        run: |
+          docker build --build-arg PRIVATE_TOKEN="${MY_SECRET_KEY}" -t test .

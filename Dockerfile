@@ -1,0 +1,5 @@
+FROM fedora
+
+ARG PRIVATE_TOKEN
+
+RUN echo $PRIVATE_TOKEN
